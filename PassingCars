@@ -1,0 +1,25 @@
+// you can use includes, for example:
+// #include <algorithm>
+
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
+
+int solution(vector<int> &A) {
+    vector<int> zeros;
+    int count = 0;
+
+    for (size_t i = 0; i < A.size(); i++) {
+        if (A[i] == 0) {
+            zeros.push_back(i);
+        }
+        else {
+            if (!zeros.empty()) {
+                count += zeros.size();
+            }
+        }
+    }
+    
+    if (count > 1000000000) return -1;
+    if (count < 0) return -1;
+    return count;
+}
